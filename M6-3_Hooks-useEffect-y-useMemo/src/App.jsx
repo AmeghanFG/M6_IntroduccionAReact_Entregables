@@ -72,6 +72,7 @@ function App() {
         />
         <button onClick={agregarTarea}>Agregar tarea</button>
 
+        <h2>Filtros</h2>
         <div className='filtros'>
           <input
             type="number"
