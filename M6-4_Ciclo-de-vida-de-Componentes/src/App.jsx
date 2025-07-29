@@ -1,4 +1,5 @@
 import React, { useState, useEffect, useMemo } from 'react';
+import Planeta from './components/Planeta';
 import './App.css'
 
 function App() {
@@ -8,11 +9,6 @@ function App() {
   const [estadoNave, setEstadoNave] = useState('En órbita');
   const [planetasVisitados, setPlanetasVisitados] = useState([]);
 
-  // Memorización
-  const mensajeEstado = useMemo(() => {
-    return estadoNave;
-  }, [estadoNave]);
-
   // Efectos
   useEffect(() => {
     console.log("¡El panel está listo!"); // Montaje
@@ -20,11 +16,13 @@ function App() {
     const intervalo = setInterval(() => { // Montaje
       // ... (simulación de vuelo)
       setCombustible((prev) => {
-        if (prev > 0) {
+        if (estadoNave === 'Aterrizando' || prev < 1) {
+          clearInterval(intervalo);
+          return prev;
+        } else {
           setDistancia((distancia) => distancia + 50); // Aumento de 100km por segundo
           return prev - 1; // Reducir combustible 1%
         }
-        return 0; // Salir del bucle si el combustible llega a 0
       });
     }, 1000);
 
@@ -32,22 +30,30 @@ function App() {
       clearInterval(intervalo); // Desmontaje
       console.log("El panel se ha apagado."); // Desmontaje
     };
-  }, []);
+  }, [estadoNave]);
 
-  // Efecto para manejar mensajes y aterrizar
+
   useEffect(() => {
-    setEstadoNave('¡Combustible actualizado!');
-    if (combustible === 0) {
+    // setEstadoNave('¡Combustible actualizado!');
+    console.log(`Combustible actualizado: ${combustible}%`);
+    if (combustible === 0 && estadoNave !== 'Aterrizando') {
       setEstadoNave('Sin combustible, aterriza para recargar ⛽️');
     }
   }, [combustible]);
 
+  // Memorización
+  const mensajeEstado = useMemo(() => {
+    return estadoNave;
+  }, [estadoNave]);
+
   const aterrizar = () => {
     setEstadoNave('Aterrizando');
     setPlanetasVisitados((prev) => [...prev, 'Nuevo planeta']);
-    setCombustible(10); // Recarga de combustible para seguir viajando
+    setTimeout(() => {
+      setCombustible(10);
+      setEstadoNave('En órbita');
+    }, 1500); // Simula el aterrizaje y recarga de combustible
   };
-
 
   return (
     <>
@@ -56,10 +62,18 @@ function App() {
         <p>Distancia recorrida: {distancia} km</p>
         <p>Combustible restante: {combustible}%</p>
         <p>Estado de la nave: {mensajeEstado}</p>
-        <p>Planetas visitados: {planetasVisitados.join(', ') || 'Ninguno'}</p>
+        
+        <h2>Planetas Visitados</h2>
+        {planetasVisitados.length > 0 ? (
+          planetasVisitados.map((planeta, index) => (
+            <Planeta key={index} nombre={planeta} />
+          ))
+        ) : (
+          <p>No has visitado ningún planeta aún.</p>
+        )}
       </div>
       <div>
-        <button onClick={aterrizar}>Aterrizar</button>
+        <button onClick={aterrizar} disabled={estadoNave === 'Aterrizando'}>Aterrizar</button>
       </div>
     </>
   )
