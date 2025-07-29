@@ -1,11 +1,12 @@
 import React, { useState, useEffect, useMemo, useRef } from 'react';
-// import Planeta from './components/Planeta';
+import Planeta from './components/Planeta';
 import './App.css'
 
 function App() {
   // Estados
   const [distancia, setDistancia] = useState(0);
   const [combustible, setCombustible] = useState(10);
+  const [mensajes, setMensajes] = useState('');
   const [estadoNave, setEstadoNave] = useState('En órbita');
 
   // Estados para planetas desde localStorage
@@ -25,7 +26,7 @@ function App() {
     const intervalo = setInterval(() => { // Montaje
       // ... (simulación de vuelo)
       setCombustible((prev) => {
-        if (estadoNave === 'Aterrizando' || prev < 1) {
+        if (estadoNave === 'Aterrizando, agrega el planeta' || prev < 1 || mensajes === 'Sin combustible ⛽️') {
           clearInterval(intervalo);
           return prev;
         } else {
@@ -39,14 +40,14 @@ function App() {
       clearInterval(intervalo); // Desmontaje
       console.log("El panel se ha apagado."); // Desmontaje
     };
-  }, [estadoNave]);
+  }, [estadoNave, combustible]);
 
 
   useEffect(() => {
     // setEstadoNave('¡Combustible actualizado!');
     console.log(`Combustible actualizado: ${combustible}%`);
-    if (combustible === 0 && estadoNave !== 'Aterrizando') {
-      setEstadoNave('Sin combustible ⛽️');
+    if (combustible === 0 && estadoNave !== 'Aterrizando, agrega el planeta') {
+      setMensajes('Sin combustible ⛽️');
     }
   }, [combustible]);
 
@@ -69,15 +70,16 @@ function App() {
   // !Corregir la lógica de despegar si no hay combustible
   const despegar = () => {
   if (combustible > 0) {
-    setEstadoNave('En órbita');
+    setEstadoNave('Viaje espacial en curso');
     setMostrarFormulario(false);
   } else {
-    setEstadoNave('Sin combustible ⛽️');
+    setMensajes('Sin combustible ⛽️');
   }
 };
 
   const recargarCombustible = () => {
     setCombustible(10);
+    setMensajes('Combustible recargado');
   };
 
   const handleSubmit = (e) => { // Guardar planeta
@@ -113,9 +115,10 @@ function App() {
         <p>Distancia recorrida: {distancia} km</p>
         <p>Combustible restante: {combustible}%</p>
         <p>Estado de la nave: {mensajeEstado}</p>
-        <button onClick={aterrizar} disabled={estadoNave === 'Aterrizando'}>Aterrizar</button>
+        <button onClick={aterrizar} disabled={estadoNave === 'Aterrizando, agrega el planeta'}>Aterrizar</button>
         <button onClick={recargarCombustible}>Recargar combustible</button>
-        <button onClick={despegar} disabled={estadoNave !== 'Aterrizando, agrega el planeta' && estadoNave !== 'Sin combustible ⛽️' }>Despegar</button>
+        <button onClick={despegar} disabled={estadoNave !== 'Aterrizando, agrega el planeta' && !(combustible < 0) }>Despegar</button>
+        <p>{mensajes}</p>
       </div>
       <div>
 
@@ -148,13 +151,18 @@ function App() {
 
       <h2>Planetas Registrados</h2>
       <ul>
-        {planetas.map((planeta, index) => (
-          <li key={index}>
+        {
+        planetas.map((planeta, index) => (
+          /*<li key={index}>
             <h3>{planeta.nombre}</h3>
             <p>{planeta.descripcion}</p>
             {planeta.imagen && <img src={planeta.imagen} alt={planeta.nombre} />}
             <button onClick={() => handleDelete(index)}>Eliminar</button>
-          </li>
+          </li> */
+          <Planeta 
+          key={index} 
+          planeta={planeta} 
+          onDelete={() => handleDelete(index)} />
         ))}
       </ul>
       </div>
