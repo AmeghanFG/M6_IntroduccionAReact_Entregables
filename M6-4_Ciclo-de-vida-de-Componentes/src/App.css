@@ -121,13 +121,11 @@ li {
 
 li h3 {
   margin: 0;
-  background-color: #646cff;
   width: 100%;
 }
 
 li p {
   margin: 0;
-  background-color: #747bff;
   width: 100%;
   height: fit-content;
   text-align: justify;
