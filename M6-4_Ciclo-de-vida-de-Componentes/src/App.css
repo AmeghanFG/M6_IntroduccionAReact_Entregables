@@ -7,7 +7,144 @@
 
 body {
   font-family: Arial, sans-serif;
-  
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+}
+
+#panel button {
+  padding: 0.5rem 1rem;
+  background-color: #535bf2;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  margin-left: 0.5rem;
+}
+
+#panel button:hover {
+  background-color: #646cff;
+}
+
+#panel :disabled {
+  background-color: #213547;
+  cursor: not-allowed;
+  color: #242424;
+}
+
+#panel :hover:disabled {
+  background-color: #213547;
+  cursor: not-allowed;
+  color: #242424;
+}
+
+.formRegistrar-Planetas {
+  padding: 1rem;
+  width: 90vw;
+}
+
+form {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-items: center;
+  gap: 1rem;
+}
+
+input[type="text"] {
+  padding: 0.5rem;
+  width: 45%;
+  border-radius: 15px;
+  border: 1px solid #ddd;
+}
+
+input[type="file"] {
+  padding: 0.5rem;
+  width: 45%;
+  border-radius: 15px;
+}
+
+textarea {
+  padding: 0.5rem;
+  width: 100%;
+  border-radius: 10px;
+}
+
+.btn-centrar {
+  display: flex;
+  justify-content: center;
+  width: 100%;
+}
+
+form button {
+  padding: 0.5rem 1rem;
+  background-color: #535bf2;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+form button:hover {
+  background-color: #646cff;
+}
+
+.planetas-registrados {
+  margin-top: 2rem;
+}
+
+.planetas-registrados h2 {
+  width: 100%;
+}
+
+ul {
+  list-style-type: none;
+  padding: 0;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 1rem;
+}
+
+li {
+  background-color: #f9f9f9;
+  margin: 0.5rem 0;
+  padding: 1rem;
+  border: 1px solid #ddd;
+  border-radius: 10px;
+  max-width: 27%;
+  height: fit-content;
+  color: #242424;
+}
+
+li h3 {
+  margin: 0;
+  background-color: #646cff;
+  width: 100%;
+}
+
+li p {
+  margin: 0;
+  background-color: #747bff;
+  width: 100%;
+  height: fit-content;
+  text-align: justify;
+}
+
+.imagen-planeta {
+  height: 20rem;
+  overflow: hidden;
+  background-color: black;
+  padding: 5px;
+  margin-bottom: 0.5rem;
+}
+
+.imagen-planeta img{
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
 }
 
 /*  * Colores

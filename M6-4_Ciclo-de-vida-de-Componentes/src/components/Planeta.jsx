@@ -5,14 +5,15 @@ function Planeta({ planeta, handleDelete }) {
     console.log(`¡El planeta ${planeta.nombre} ha aparecido!`); // Montaje
     return () => console.log(`¡El planeta ${planeta.nombre} ha desaparecido!`); // Desmontaje
   }, [planeta.nombre]);
-  return <div>
+
+  return (
     <li>
       <h3>{planeta.nombre}</h3>
       <p>{planeta.descripcion}</p>
-      {planeta.imagen && <img src={planeta.imagen} alt={planeta.nombre} />}
+      <div className='imagen-planeta'>{planeta.imagen && <img src={planeta.imagen} alt={planeta.nombre} />}</div>
       <button onClick={handleDelete}>Eliminar</button>
     </li>
-  </div>;
+  );
 }
 
 export default Planeta;

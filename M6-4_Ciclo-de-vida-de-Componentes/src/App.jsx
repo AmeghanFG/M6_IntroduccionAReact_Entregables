@@ -110,7 +110,7 @@ function App() {
 
   return (
     <>
-      <div>
+      <div id='panel'>
         <h1>Panel de Control de la Nave Espacial</h1>
         <p>Distancia recorrida: {distancia} km</p>
         <p>Combustible restante: {combustible}%</p>
@@ -120,8 +120,6 @@ function App() {
         <button onClick={despegar} disabled={estadoNave !== 'Aterrizando, agrega el planeta' && !(combustible < 0) }>Despegar</button>
         <p>{mensajes}</p>
       </div>
-      <div>
-
         {mostrarFormulario && (
           <div className='formRegistrar-Planetas'>
         <h2>Registrar Planeta</h2>
@@ -133,22 +131,22 @@ function App() {
           onChange={(e) => setNombre(e.target.value)}
           required
         />
+        <input
+          type="file"
+          onChange={(e) => setImagen(e.target.files[0])}
+          ref={inputImagenRef}
+        />
         <textarea
           placeholder="Descripción"
           value={descripcion}
           onChange={(e) => setDescripcion(e.target.value)}
           required
         />
-        <input
-          type="file"
-          onChange={(e) => setImagen(e.target.files[0])}
-          ref={inputImagenRef}
-        />
-        <button type="submit">Guardar</button>
+        <div className='btn-centrar'><button type="submit">Guardar</button></div>
       </form>
         </div>
       )}
-
+    <div className='planetas-registrados'>
       <h2>Planetas Registrados</h2>
       <ul>
         {
@@ -162,7 +160,7 @@ function App() {
           <Planeta 
           key={index} 
           planeta={planeta} 
-          onDelete={() => handleDelete(index)} />
+          handleDelete={() => handleDelete(index)} />
         ))}
       </ul>
       </div>
