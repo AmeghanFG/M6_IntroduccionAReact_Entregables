@@ -66,18 +66,18 @@ function App() {
     setMostrarFormulario(true);
   };
 
+  // !Corregir la lógica de despegar si no hay combustible
   const despegar = () => {
-    if (combustible > 0) {
-      setEstadoNave('En órbita');
-      setMostrarFormulario(false);
-    } else {
-      setEstadoNave('Sin combustible, aterriza para recargar ⛽️');
-    }
-  };
+  if (combustible > 0) {
+    setEstadoNave('En órbita');
+    setMostrarFormulario(false);
+  } else {
+    setEstadoNave('Sin combustible ⛽️');
+  }
+};
 
   const recargarCombustible = () => {
     setCombustible(10);
-    // setEstadoNave('Combustible recargado');
   };
 
   const handleSubmit = (e) => { // Guardar planeta
@@ -97,6 +97,7 @@ function App() {
     if (inputImagenRef.current) {
       inputImagenRef.current.value = ''; // Limpiar el input de imagen
     }
+    setMostrarFormulario(false); 
   };
 
   const handleDelete = (index) => {
@@ -114,7 +115,7 @@ function App() {
         <p>Estado de la nave: {mensajeEstado}</p>
         <button onClick={aterrizar} disabled={estadoNave === 'Aterrizando'}>Aterrizar</button>
         <button onClick={recargarCombustible}>Recargar combustible</button>
-        <button onClick={despegar} disabled={estadoNave !== 'Aterrizando'}>Despegar</button>
+        <button onClick={despegar} disabled={estadoNave !== 'Aterrizando, agrega el planeta' && estadoNave !== 'Sin combustible ⛽️' }>Despegar</button>
       </div>
       <div>
 
