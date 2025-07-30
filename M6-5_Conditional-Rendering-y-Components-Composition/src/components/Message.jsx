@@ -1,8 +1,10 @@
 import React from 'react'
 
-const Message = () => {
+const Message = ({ mensaje }) => {
   return (
-    <div>Message</div>
+    <div>
+        {mensaje ? <p>{mensaje}</p> : null}
+    </div>
   )
 }
 
