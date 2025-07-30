@@ -3,7 +3,7 @@ import React from 'react'
 const Message = ({ mensaje }) => {
   return (
     <div>
-        {mensaje ? <p>{mensaje}</p> : null}
+      {mensaje ? <p>{mensaje}</p> : null}
     </div>
   )
 }

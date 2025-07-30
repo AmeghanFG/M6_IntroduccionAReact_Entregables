@@ -1,8 +1,8 @@
 import React from 'react'
 
-const RestartButton = () => {
+const RestartButton = ({handleReiniciar}) => {
   return (
-    <div>RestartButton</div>
+    <button onClick={handleReiniciar}>Reiniciar</button>
   )
 }
 

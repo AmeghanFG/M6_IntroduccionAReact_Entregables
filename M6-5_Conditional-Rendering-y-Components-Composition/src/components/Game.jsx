@@ -2,6 +2,7 @@ import { useState, useEffect } from 'react';
 import React from 'react'
 import InputNumber from './InputNumber';
 import Message from './Message';
+import RestartButton from './RestartButton';
 
 const Game = () => {
     // TODO: Estados
@@ -39,11 +40,14 @@ const Game = () => {
 
   return (
     <div id = "contenedor-juego">
+        {/* Componentes */}
         <h2>Adivina el número</h2>
         <InputNumber numeroIngresado={numeroIngresado} setNumeroIngresado={setNumeroIngresado}/>
         <Message mensaje={mensaje}/>
-        <button onClick={handleAdvinar}>Adivinar</button>
-        <button onClick={handleReiniciar}>Reiniciar</button>
+        <div className='botones'>
+            <button onClick={handleAdvinar}>Adivinar</button>
+            <RestartButton handleReiniciar={() => handleReiniciar()} />
+        </div>
     </div>
   )
 }
