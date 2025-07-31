@@ -106,18 +106,20 @@ const CounterGame = () => {
   return ( // Interfaz
     <section id='contenedor-juego'>
       <h2>Contador: {state.count}</h2>
-      <div id='contedor-input-botones-mas-menos'>
-        <input
-          type='number'
-          min='0' placeholder='Ingresa un número'
-          value={inputNumber}
-          onChange={(e) => setInputNumber(e.target.value)}
-        />
-        <button ref={incrementBtnRef} onClick={handleIncrement}>+</button>
-        <button onClick={handleDecrement}>-</button>
+      <div id='formulario'>
+        <div id='contedor-input-botones-mas-menos'>
+          <input
+            type='number'
+            min='0' placeholder='Ingresa un número'
+            value={inputNumber}
+            onChange={(e) => setInputNumber(e.target.value)}
+          />
+          <button ref={incrementBtnRef} onClick={handleIncrement}>+</button>
+          <button onClick={handleDecrement}>-</button>
+        </div>
+        <button onClick={handleReset}>Reset</button>
+        <button onClick={handleUndo}>Deshacer</button>
       </div>
-      <button onClick={handleReset}>Reset</button>
-      <button onClick={handleUndo}>Deshacer</button>
       <h3>Historial de cambios:</h3>
       <ul>
         {
