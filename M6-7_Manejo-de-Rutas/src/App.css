@@ -206,6 +206,29 @@ h1 {
   color: #242424;
 }
 
+/* *NotFound */ 
+.page-404 {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 2rem;
+  min-height: 80vh;
+  color: #535bf2;
+  text-align: center;
+}
+
+.page-404 h1 {
+  font-size: 2rem;
+  margin-bottom: 1rem;
+  font-weight: 700;
+}
+
+.page-404 img {
+  max-width: 80vh;
+  height: auto;
+}
+
 @media (max-width: 500px) {
   .cita-details {
     grid-template-columns: 1fr;
