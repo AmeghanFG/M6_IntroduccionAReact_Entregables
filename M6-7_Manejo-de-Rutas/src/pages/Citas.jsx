@@ -10,12 +10,16 @@ const Citas = () => {
       <div className='appointments-cards'>
         {citasMedicas.map((cita) => (
           <div key={cita.id} className='cita-card'>
-            <h3>Cita {cita.id}</h3>
-            <p><strong>Paciente: </strong>{cita.paciente.nombre}</p>
-            <p><strong>Médico:</strong> {cita.medico.nombre} ({cita.medico.especialidad})</p>
-            <p><strong>Fecha:</strong> {cita.fecha} a las {cita.hora}</p>
-            <p><strong>Estado:</strong> {cita.estado}</p>
-            <Link to={`/cita/${cita.id}`}><button>Ver detalles</button></Link>
+            <div className='cita-card-content'>
+              <h3>Cita {cita.id}</h3>
+              <p><strong>Paciente: </strong>{cita.paciente.nombre}</p>
+              <p><strong>Médico:</strong> {cita.medico.nombre} ({cita.medico.especialidad})</p>
+              <p><strong>Fecha:</strong> {cita.fecha} a las {cita.hora}</p>
+              <p><strong>Estado:</strong> {cita.estado}</p>
+            </div>
+            <Link to={`/cita/${cita.id}`}>
+              <button>Ver detalles</button>
+            </Link>
           </div>
         ))}
       </div>
