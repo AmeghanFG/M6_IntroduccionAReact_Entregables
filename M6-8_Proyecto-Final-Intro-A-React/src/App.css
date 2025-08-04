@@ -44,6 +44,8 @@ h2 {
   background-color: rgba(0, 0, 0, 0.3);
   border-radius: 20px;
   padding: 1rem;
+  width: 30rem;
+  margin: 0 auto;
 }
 
 .login-logout p {
@@ -79,7 +81,7 @@ h2 {
   font-size: 1rem;
   background:beige;
   color: #21223b;
-  flex-grow: 1;
+  width: 50%;
 }
 
 .tweetForm-container input[type="text"]:focus {
@@ -95,7 +97,7 @@ h2 {
   font-weight: 600;
   font-size: 1rem;
   cursor: pointer;
-  width: 20%;
+  width: 10%;
 }
 
 .tweetForm-container button:hover {
@@ -148,7 +150,7 @@ h2 {
 }
 
 .login-form {
-  width: 90%;
+  width: 80%;
 }
 
 .login-form input {
