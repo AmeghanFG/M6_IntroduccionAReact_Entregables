@@ -3,7 +3,7 @@ import Tweet from './Tweet'
 
 const TweetList = ({ tweets, onLike }) => {
   return (
-    <div>
+    <div className='tweetList'>
       {tweets.map((tweet) => (
         <Tweet key={tweet.id} tweet={tweet} onLike={onLike} />
       ))}

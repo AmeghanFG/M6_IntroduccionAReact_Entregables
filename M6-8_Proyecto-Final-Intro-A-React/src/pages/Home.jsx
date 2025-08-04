@@ -35,26 +35,27 @@ const Home = ({ user, logout }) => {
   }
 
   return (
-    <div>
+    <div className='home-container'>
       <h1>Forma muy simplificada de Twitter</h1>
       {user && (
         <>
           <h2>Hola, {user.userName}</h2>
-          <Link to='/profile'><button>Ver perfil</button></Link>
+          <Link to='/profile'><button className='btn-perfil'>Ver perfil</button></Link>
         </>
       )}
+
       <TweetForm onAddTweet={addTweet} />
       <TweetList tweets={tweets} onLike={likeTweet} />
 
       {user
         ? (
-          <div>
-            <p>¿Quieres cerrar sesión {user.userName} ?</p>
+          <div className='login-logout'>
+            <p>¿Quieres cerrar sesión {user.userName}?</p>
             <button onClick={logout}>Cerrar sesión</button>
           </div>
           )
         : (
-          <div>
+          <div className='login-logout'>
             <p>¿Quieres iniciar sesión?</p>
             <Link to='/login'><button>Iniciar sesión</button></Link>
           </div>

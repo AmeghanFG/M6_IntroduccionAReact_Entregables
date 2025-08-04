@@ -1,6 +1,249 @@
 #root {
   max-width: 1280px;
   margin: 0 auto;
-  padding: 2rem;
+  padding: 1rem;
   text-align: center;
 }
+
+body {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: Georgia, 'Times New Roman', Times, serif, Tahoma, Geneva, Verdana, sans-serif;
+}
+
+h1 {
+  width: 100%;
+  font-weight: 900;
+  text-align: center;
+}
+
+h2 {
+  width: 100%;
+  font-weight: 700;
+  margin: 0.5rem;
+  color: #a3a8ff;
+}
+
+.btn-perfil {
+  background-color: #747bff;
+  border: none;
+  color: white;
+  font-weight: 700;
+  padding: 0.5rem 1rem;
+  border-radius: 10px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.btn-perfil:hover {
+  background-color: #3f43c0;
+}
+
+.login-logout {
+  background-color: rgba(0, 0, 0, 0.3);
+  border-radius: 20px;
+  padding: 1rem;
+}
+
+.login-logout p {
+  margin: 0 0 0.5rem;
+}
+
+.login-logout button {
+  background-color: #747bff;
+  color: white;
+  border-radius: 10px;
+  border: none;
+  padding: 0.5rem 1rem;
+  font-weight: 600;
+  font-family:Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+}
+.login-logout button:hover {
+  background-color: #3f43c0;
+}
+
+.tweetForm-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  margin: 3rem 1rem;
+}
+
+.tweetForm-container input[type="text"] {
+  padding: 0.5rem;
+  border:none;
+  border-radius: 10px;
+  outline: none;
+  font-size: 1rem;
+  background:beige;
+  color: #21223b;
+  flex-grow: 1;
+}
+
+.tweetForm-container input[type="text"]:focus {
+  border: 2px solid #d1d4ff;
+}
+
+.tweetForm-container button {
+  background: #3f43c0;
+  color: #fff;
+  border: none;
+  border-radius: 8px;
+  padding: 0.5rem 1rem;
+  font-weight: 600;
+  font-size: 1rem;
+  cursor: pointer;
+  width: 20%;
+}
+
+.tweetForm-container button:hover {
+  background: #283593;
+}
+
+.tweetList {
+  margin: 3rem 0;
+}
+
+.tweet {
+  margin: 1rem;
+  padding: 0;
+  margin-bottom: 2px solid;
+}
+
+.tweet p {
+  margin: 0.3rem;
+}
+
+.tweet button {
+  background-color: rgba(106, 156, 222, 0.5);
+  border: none;
+  color: white;
+  padding: 0.4rem 0.6rem;
+  font-weight: 700;
+  border-radius: 10px;
+  cursor: pointer;
+  transition: background-color 0.25s ease;
+}
+
+.tweet button:hover {
+  background-color: rgba(111, 53, 71, 0.5);
+}
+
+/* Login */
+.login-container {
+  display: flex;
+  box-sizing: border-box;
+  flex-direction: column;
+  justify-content: center; 
+  align-items: center;
+  margin: 0;
+  height: 90vh; 
+}
+
+.login-form h1 {
+  margin: 0 0 2rem;
+  width: 100%;
+}
+
+.login-form {
+  width: 90%;
+}
+
+.login-form input {
+  padding: 0.5rem 1.5rem;
+  border:none;
+  border-radius: 10px;
+  outline: none;
+  font-size: 1rem;
+  background:beige;
+  color: #21223b;
+  flex-grow: 1;
+  margin-right: 0.5rem;
+}
+
+.login-form input:focus {
+  border: 2px solid rgb(111 53 71);
+}
+
+.login-form button {
+  background: #3f43c0;
+  color: #fff;
+  border: none;
+  border-radius: 8px;
+  padding: 0.5rem 0.7rem;
+  font-weight: 600;
+  font-size: 1rem;
+  cursor: pointer;
+}
+
+.login-form button:hover {
+  background: #283593;
+}
+
+/* Profile */
+.profile {
+  max-width: 480px;
+  margin: 3rem auto;
+  padding: 2rem;
+  background-color: #f4f6fb;
+  border-radius: 16px;
+  box-shadow: 0 5px 15px rgba(111, 53, 71, 0.5);
+  text-align: center;
+  color: #1f1f5c;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+.profile h1 {
+  font-size: 2.3rem;
+  font-weight: 700;
+  margin-bottom: 1.3rem;
+  color: #3f43c0;
+}
+
+.profile p {
+  font-size: 1.1rem;
+  margin-bottom: 1rem;
+}
+
+.profile button {
+  background-color: #646cff;
+  color: white;
+  border: none;
+  padding: 0.5rem 1.2rem;
+  font-size: 1rem;
+  font-weight: 600;
+  border-radius: 10px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.profile button:hover {
+  background-color: #535bf2;
+}
+
+
+/*  * Colores para el proyecto
+#1f1f5c - rgb(31 31 92)
+#292b73 - rgb(41, 43, 115)
+#2f3192 - rgb(47 49 146)
+#3f43c0 - rgb(63 67 192)
+#747bff - rgb(116 123 255)
+#646cff - rgb(100 108 255)
+#535bf2 - rgb(83 91 242)
+#a3a8ff - rgb(163 168 255)
+#b3b8ff - rgb(179 184 255)
+#c2c6ff - rgb(194 198 255)
+#d1d4ff - rgb(209 212 255)
+#e0e2ff - rgb(224 226 255)
+
+#1c4c96 - rgb(28 76 150)
+#98c3ec - rgb(152 195 237)
+#bceeff - rgb(188 238 255)
+#6a9cde - rgb(106 156 222)
+
+
+rgb(111 53 71)
+#242424 - rgb(36 36 36)
+*/

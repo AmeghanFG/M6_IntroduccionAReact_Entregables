@@ -15,7 +15,7 @@ const TweetForm = ({ onAddTweet }) => {
   }
 
   return (
-    <form onSubmit={handleSubmit}>
+    <form className='tweetForm-container' onSubmit={handleSubmit}>
       {/* Formulario para nuevo tweet */}
       <input
         type='text'
